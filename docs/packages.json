@@ -1,0 +1,12 @@
+{
+    "packages": [],
+    "includes": {
+        "include/all$c25ab5eac4c62fd83eacd9185cc3e3ffadc2ad82.json": {
+            "sha1": "c25ab5eac4c62fd83eacd9185cc3e3ffadc2ad82"
+        }
+    },
+    "metadata-url": "/msa.core.blank/p2/%package%.json",
+    "available-packages": [
+        "krypteral/msa.core.blank"
+    ]
+}

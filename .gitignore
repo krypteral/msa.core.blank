@@ -1,0 +1,11 @@
+.idea/*
+nbproject/*
+.vscode/*
+.history/
+*.vsix
+.git/*
+vendor/*
+.phpunit.result.cache
+.php-cs-fixer.cache
+.env
+crontestrun.log

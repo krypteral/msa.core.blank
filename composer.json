@@ -1,0 +1,57 @@
+{
+  "name": "krypteral/msa.core.blank",
+  "version": "1.0.0",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Application\\": "app/",
+      "Bootstrap\\": "bootstrap/",
+      "Core\\": "core/",
+      "Cron\\": "cron/"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "ext-bz2": "*",
+    "ext-ctype": "*",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-exif": "*",
+    "ext-fileinfo": "*",
+    "ext-gd": "*",
+    "ext-mbstring": "*",
+    "ext-msgpack": "*",
+    "ext-mysqli": "*",
+    "ext-openssl": "*",
+    "ext-pdo": "*",
+    "ext-zlib": "*",
+    "vlucas/phpdotenv": "^5.5",
+    "psr/log": "^3.0",
+    "psr/container": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.2",
+    "friendsofphp/php-cs-fixer": "^3.21"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php ./.post-install.php"
+    ],
+    "post-create-project-cmd": [
+      "php ./.post-install.php"
+    ],
+    "php-cs-fixer": [
+      "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+    ],
+    "php-cs-fixer-dry-run": [
+      "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run"
+    ],
+    "phpunit": [
+      "./vendor/bin/phpunit ./app/tests --dont-report-useless-tests --display-warnings"
+    ],
+    "phpunit-php-cs-fixer-dry-run": [
+      "@php-cs-fixer-dry-run",
+      "@phpunit"
+    ]
+  }
+}

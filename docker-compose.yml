@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: msa_core_blank__nginx
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/log:/var/log/nginx
+    depends_on:
+      - app
+    networks:
+      - shared_network
+    command: >
+      bash -c "sed -i 's/DOMAIN_NAME/$DOMAIN_NAME/' /etc/nginx/conf.d/default.conf
+      && sed -i 's/DOMAIN_CORS_ALLOWED_1/$DOMAIN_CORS_ALLOWED_1/' /etc/nginx/conf.d/default.conf
+      && sed -i 's/DOMAIN_CORS_ALLOWED_2/$DOMAIN_CORS_ALLOWED_2/' /etc/nginx/conf.d/default.conf
+      && sed -i 's/DOMAIN_CORS_ALLOWED_3/$DOMAIN_CORS_ALLOWED_3/' /etc/nginx/conf.d/default.conf
+      && nginx -g 'daemon off;'"
+
+  app:
+    container_name: msa_core_blank__app
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    volumes:
+      - ./:/var/www
+      - ./docker/php/log:/var/log
+    networks:
+      - shared_network
+    command: >
+      bash -c "cd /var/www
+      && rm -rf ./src
+      && COMPOSER_PROCESS_TIMEOUT=2000 composer install
+      && cron
+      && php-fpm"
+
+  db:
+    container_name: msa_core_blank__db
+    build:
+      context: .
+      dockerfile: ./docker/mysql-dev/Dockerfile
+    ports:
+      - "33062:33062"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./docker/mysql-dev/log:/var/log/mysql
+    networks:
+      - shared_network
+
+networks:
+  shared_network:

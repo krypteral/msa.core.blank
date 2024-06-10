@@ -1,0 +1,155 @@
+{
+    "packages": {
+        "krypteral/msa.core.blank": {
+            "1.0.0": {
+                "name": "krypteral/msa.core.blank",
+                "version": "1.0.0",
+                "version_normalized": "1.0.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/krypteral/msa.core.blank.git",
+                    "reference": "fe86d69cb0950b1272dbdaeb8245dc0e4f4c425d"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/krypteral/msa.core.blank/zipball/fe86d69cb0950b1272dbdaeb8245dc0e4f4c425d",
+                    "reference": "fe86d69cb0950b1272dbdaeb8245dc0e4f4c425d",
+                    "shasum": ""
+                },
+                "require": {
+                    "ext-bz2": "*",
+                    "ext-ctype": "*",
+                    "ext-curl": "*",
+                    "ext-dom": "*",
+                    "ext-exif": "*",
+                    "ext-fileinfo": "*",
+                    "ext-gd": "*",
+                    "ext-mbstring": "*",
+                    "ext-msgpack": "*",
+                    "ext-mysqli": "*",
+                    "ext-openssl": "*",
+                    "ext-pdo": "*",
+                    "ext-zlib": "*",
+                    "php": ">=8.1",
+                    "psr/container": "^2.0",
+                    "psr/log": "^3.0",
+                    "vlucas/phpdotenv": "^5.5"
+                },
+                "require-dev": {
+                    "friendsofphp/php-cs-fixer": "^3.21",
+                    "phpunit/phpunit": "^10.2"
+                },
+                "time": "2024-06-10T20:53:03+00:00",
+                "type": "project",
+                "autoload": {
+                    "psr-4": {
+                        "Application\\": "app/",
+                        "Bootstrap\\": "bootstrap/",
+                        "Core\\": "core/",
+                        "Cron\\": "cron/"
+                    }
+                },
+                "scripts": {
+                    "post-install-cmd": [
+                        "php ./.post-install.php"
+                    ],
+                    "post-create-project-cmd": [
+                        "php ./.post-install.php"
+                    ],
+                    "php-cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+                    ],
+                    "php-cs-fixer-dry-run": [
+                        "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run"
+                    ],
+                    "phpunit": [
+                        "./vendor/bin/phpunit ./app/tests --dont-report-useless-tests --display-warnings"
+                    ],
+                    "phpunit-php-cs-fixer-dry-run": [
+                        "@php-cs-fixer-dry-run",
+                        "@phpunit"
+                    ]
+                },
+                "support": {
+                    "source": "https://github.com/krypteral/msa.core.blank/tree/1.0.0",
+                    "issues": "https://github.com/krypteral/msa.core.blank/issues"
+                }
+            },
+            "dev-main": {
+                "name": "krypteral/msa.core.blank",
+                "version": "dev-main",
+                "version_normalized": "dev-main",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/krypteral/msa.core.blank.git",
+                    "reference": "cde20343501c32e7b3d351242852a1fdea56edf8"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/krypteral/msa.core.blank/zipball/cde20343501c32e7b3d351242852a1fdea56edf8",
+                    "reference": "cde20343501c32e7b3d351242852a1fdea56edf8",
+                    "shasum": ""
+                },
+                "require": {
+                    "ext-bz2": "*",
+                    "ext-ctype": "*",
+                    "ext-curl": "*",
+                    "ext-dom": "*",
+                    "ext-exif": "*",
+                    "ext-fileinfo": "*",
+                    "ext-gd": "*",
+                    "ext-mbstring": "*",
+                    "ext-msgpack": "*",
+                    "ext-mysqli": "*",
+                    "ext-openssl": "*",
+                    "ext-pdo": "*",
+                    "ext-zlib": "*",
+                    "php": ">=8.1",
+                    "psr/container": "^2.0",
+                    "psr/log": "^3.0",
+                    "vlucas/phpdotenv": "^5.5"
+                },
+                "require-dev": {
+                    "friendsofphp/php-cs-fixer": "^3.21",
+                    "phpunit/phpunit": "^10.2"
+                },
+                "time": "2024-06-12T16:56:47+00:00",
+                "default-branch": true,
+                "type": "project",
+                "autoload": {
+                    "psr-4": {
+                        "Application\\": "app/",
+                        "Bootstrap\\": "bootstrap/",
+                        "Core\\": "core/",
+                        "Cron\\": "cron/"
+                    }
+                },
+                "scripts": {
+                    "post-install-cmd": [
+                        "php ./.post-install.php"
+                    ],
+                    "post-create-project-cmd": [
+                        "php ./.post-install.php"
+                    ],
+                    "php-cs-fixer": [
+                        "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+                    ],
+                    "php-cs-fixer-dry-run": [
+                        "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run"
+                    ],
+                    "phpunit": [
+                        "./vendor/bin/phpunit ./app/tests --dont-report-useless-tests --display-warnings"
+                    ],
+                    "phpunit-php-cs-fixer-dry-run": [
+                        "@php-cs-fixer-dry-run",
+                        "@phpunit"
+                    ]
+                },
+                "support": {
+                    "source": "https://github.com/krypteral/msa.core.blank/tree/main",
+                    "issues": "https://github.com/krypteral/msa.core.blank/issues"
+                }
+            }
+        }
+    }
+}
